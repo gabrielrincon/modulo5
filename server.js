@@ -3,6 +3,7 @@ require("dotenv").config();
 const express = require("express");
 const path = require("path");
 const peticionesRoutes = require("./src/routes/peticiones.routes");
+const dashboardRoutes = require("./src/routes/dashboard.routes");
 
 const authRoutes = require("./src/routes/auth.routes");
 
@@ -19,7 +20,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/api/peticiones", peticionesRoutes);
 app.use("/api/auth", authRoutes);
-
+app.use("/api/dashboard", dashboardRoutes);
 app.get("/", (req, res) => {
   res.send(`
     <h1>${APP_NAME}</h1>
